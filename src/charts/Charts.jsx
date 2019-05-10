@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import ApexCharts from './apex-charts/ApexCharts';
+import ApexChart from './apex-charts/ApexChart';
 import ChartistChart from './chartist/ChartistChart';
 import FrappeChart from './frappe/FrappeChart';
 import VisChart from './react-vis/VisChart';
@@ -11,7 +11,7 @@ const Charts = props => {
             <ChartistChart />
             <FrappeChart />
             <VisChart />
-            <ApexCharts />
+            <ApexChart />
         </div>
     );
 };
