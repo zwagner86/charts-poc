@@ -1,4 +1,4 @@
-const chartData = [
+const inventoryData = [
     {
         x: '2019-05-09T00:00',
         y: 4
@@ -190,7 +190,23 @@ const chartData = [
     {
         x: '2019-05-09T23:30',
         y: 9
+    },
+    {
+        x: '2019-05-10T00:00',
+        y: 9
     }
 ];
+
+const randomData = inventoryData.map(data => {
+    return {
+        x: data.x,
+        y: Math.floor(Math.random() * 44) + 1
+    };
+});
+
+const chartData = {
+    inventoryData,
+    randomData
+};
 
 export default chartData;

@@ -21,7 +21,7 @@ export default class ChartistChart extends Component {
         super(props);
 
         this._highestYValue = 0;
-        this._mappedData = chartData.map(point => {
+        this._mappedData = chartData.inventoryData.map(point => {
             if (point.y > this._highestYValue) {
                 this._highestYValue = point.y;
             }

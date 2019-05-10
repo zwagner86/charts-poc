@@ -25,7 +25,7 @@ export default class VisChart extends Component {
     constructor(props) {
         super(props);
 
-        this._mappedData = chartData.map(point => {
+        this._mappedData = chartData.inventoryData.map(point => {
             return {
                 x: new Date(point.x),
                 y: point.y

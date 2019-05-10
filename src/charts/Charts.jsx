@@ -4,6 +4,7 @@ import ApexChart from './apex-charts/ApexChart';
 import ChartistChart from './chartist/ChartistChart';
 import FrappeChart from './frappe/FrappeChart';
 import VisChart from './react-vis/VisChart';
+import './Charts.scss';
 
 const Charts = props => {
     return (

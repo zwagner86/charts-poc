@@ -24,9 +24,9 @@ export default class FrappeChart extends Component {
     constructor(props) {
         super(props);
 
-        this.CHART_DATA = chartData.reduce((dataObj, chartDataPt) => {
-            dataObj.labels.push(moment(chartDataPt.x).format('h:mma'));
-            dataObj.data.push(chartDataPt.y);
+        this.CHART_DATA = chartData.inventoryData.reduce((dataObj, inventoryDataPt) => {
+            dataObj.labels.push(moment(inventoryDataPt.x).format('h:mma'));
+            dataObj.data.push(inventoryDataPt.y);
 
             return dataObj;
         }, {labels: [], data: []});
