@@ -1,2 +1,2 @@
-# charts-poc
-POC of some chart libs
+# react-parcel
+My personal React + Parcel set up

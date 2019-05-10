@@ -1,0 +1,33 @@
+{
+  "name": "react-parcel-app",
+  "version": "0.0.1",
+  "description": "Simple React + Parcel set up.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@spothero/eslint-config": "1.6.1",
+    "@spothero/stylelint-config": "1.1.4",
+    "node-sass": "4.11.0",
+    "parcel-bundler": "latest"
+  },
+  "dependencies": {
+    "autoprefixer": "9.5.1",
+    "classnames": "2.2.6",
+    "frappe-charts": "1.1.0",
+    "lodash": "4.17.11",
+    "moment": "2.24.0",
+    "performance-now": "2.1.0",
+    "postcss-modules": "1.4.1",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-vis": "1.11.7",
+    "uuid": "3.3.2"
+  }
+}
