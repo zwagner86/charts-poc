@@ -1,34 +1,86 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
+import moment from 'moment';
 import {
     FlexibleXYPlot,
     XAxis,
     YAxis,
-    LineMarkSeries
+    LineMarkSeries,
+    VerticalBarSeries,
+    Hint
 } from 'react-vis';
 import chartData from './chartData';
 import './VisChart.scss';
 
-const VisChart = props => {
-    console.log(chartData);
+export default class VisChart extends Component {
+    static propTypes = {
 
-    return (
-        <div className="VisChart">
-            <FlexibleXYPlot>
-                <XAxis />
-                <YAxis />
-                <LineMarkSeries data={[{x: 1, y: 11}, {x: 1.5, y: 29}, {x: 3, y: 7}]} />
-            </FlexibleXYPlot>
-        </div>
-    );
-};
+    };
+    static defaultProps = {
 
-VisChart.propTypes = {
+    };
+    state = {
+        tooltipValue: null
+    };
 
-};
+    constructor(props) {
+        super(props);
 
-VisChart.defaultProps = {
+        this._mappedData = chartData.map(point => {
+            return {
+                x: new Date(point.x),
+                y: point.y
+            };
+        });
+    }
 
-};
+    _onSetTooltip = tooltipValue => {
+        this.setState({
+            tooltipValue
+        });
+    }
 
-export default VisChart;
+    _onForgetTooltip = () => {
+        this.setState({
+            tooltipValue: null
+        });
+    }
+
+    _xTickFormat = value => {
+        // console.log(value);
+
+        return moment(value).format('ha');
+    }
+
+    render() {
+        const {
+            tooltipValue
+        } = this.state;
+
+        return (
+            <div className="VisChart">
+                <h1>React-vis</h1>
+                <div className="VisChart-chart-container">
+                    <FlexibleXYPlot>
+                        <XAxis
+                            tickFormat={this._xTickFormat}
+                        />
+                        <YAxis />
+                        <LineMarkSeries
+                            data={this._mappedData}
+                            curve="curveStepAfter"
+                            onValueMouseOver={this._onSetTooltip}
+                            onValueMouseOut={this._onForgetTooltip}
+                        />
+                        {tooltipValue &&
+                            <Hint value={tooltipValue}>
+                                <div>{moment(tooltipValue.x).format('h:mma')}</div>
+                                <div>{tooltipValue.y} spaces</div>
+                            </Hint>
+                        }
+                    </FlexibleXYPlot>
+                </div>
+            </div>
+        );
+    }
+}
