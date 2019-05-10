@@ -6,10 +6,9 @@ import {
     XAxis,
     YAxis,
     LineMarkSeries,
-    VerticalBarSeries,
     Hint
 } from 'react-vis';
-import chartData from './chartData';
+import chartData from '../chartData';
 import './VisChart.scss';
 
 export default class VisChart extends Component {

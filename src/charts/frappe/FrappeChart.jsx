@@ -5,7 +5,7 @@ import React, {
 // import PropTypes from 'prop-types';
 import moment from 'moment';
 import {Chart} from 'frappe-charts/dist/frappe-charts.min.esm.js';
-import chartData from './chartData';
+import chartData from '../chartData';
 import './FrappeChart.scss';
 
 export default class FrappeChart extends Component {

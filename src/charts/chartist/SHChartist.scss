@@ -1,0 +1,123 @@
+@import "sh-chartist";
+
+$color-fuel: #002d5b;
+$color-shift: #0082ff;
+$color-shift-hover: #026bcf;
+$color-accelerate: #009851;
+$color-go: #1dbd71;
+$color-caution: #fdb22b;
+$color-stop: #ed3354;
+$color-pavement: #f6f7f9;
+$color-dashboard: #cbd4de;
+$color-cement: #5c7996;
+$color-white: #ffffff;
+$color-black: #212121;
+$color-highlight: #fff000;
+$color-social-behance: #1769ff;
+$color-social-dribbble: #ea4c89;
+$color-social-facebook: #3b5998;
+$color-social-github: #cccccc;
+$color-social-linkedin: #007bb6;
+$color-social-twitter: #00aced;
+$color-social-yelp: #c41200;
+
+.ct-area,
+.ct-line {
+    pointer-events: none;
+}
+
+.ct-circle {
+    fill: $color-white;
+    stroke-width: 2;
+    stroke: $color-go;
+}
+
+.ct-series {
+    @for $i from 0 to length($ct-series-colors) {
+        .ct-circle-#{$i} {
+            stroke: nth($ct-series-colors, $i + 1);
+        }
+    }
+}
+
+.ct-label {
+    &.ct-horizontal {
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+}
+
+.ct-legend {
+    position: relative;
+    color: $color-fuel;
+
+    li {
+        position: relative;
+        list-style: none;
+        padding-left: 20px;
+        margin-bottom: 5px;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: $ct-point-size;
+            height: $ct-point-size;
+            content: "";
+            border: $ct-line-width solid transparent;
+            border-radius: 50%;
+        }
+
+        &.inactive {
+            &::before {
+                background: transparent;
+            }
+        }
+    }
+
+    &.ct-legend-inside {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    @for $i from 0 to length($ct-series-colors) {
+        .ct-series-#{$i}::before {
+            background-color: nth($ct-series-colors, $i + 1);
+            border-color: nth($ct-series-colors, $i + 1);
+        }
+    }
+}
+
+.chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    background-color: $color-white;
+    color: $color-fuel;
+    border-top: 4px solid $color-go;
+    border-radius: 4px;
+    box-shadow: 0 0 24px 0 rgba($color-fuel, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 10px 5px 0;
+        border-top-color: $color-white;
+    }
+
+    &.tooltip-show {
+        opacity: 1;
+    }
+}
