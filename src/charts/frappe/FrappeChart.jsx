@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 // import PropTypes from 'prop-types';
 import moment from 'moment';
-import {Chart} from 'frappe-charts/dist/frappe-charts.min.esm.js';
+import {Chart} from 'frappe-charts/dist/frappe-charts.min.esm';
 import chartData from '../chartData';
 import './FrappeChart.scss';
 
@@ -24,9 +24,16 @@ export default class FrappeChart extends Component {
     constructor(props) {
         super(props);
 
-        this.CHART_DATA = chartData.inventoryData.reduce((dataObj, inventoryDataPt) => {
+        this.INVENTORY_DATA = chartData.inventoryData.reduce((dataObj, inventoryDataPt) => {
             dataObj.labels.push(moment(inventoryDataPt.x).format('h:mma'));
             dataObj.data.push(inventoryDataPt.y);
+
+            return dataObj;
+        }, {labels: [], data: []});
+
+        this.RANDOM_DATA = chartData.randomData.reduce((dataObj, randomDataPt) => {
+            dataObj.labels.push(moment(randomDataPt.x).format('h:mma'));
+            dataObj.data.push(randomDataPt.y);
 
             return dataObj;
         }, {labels: [], data: []});
@@ -38,17 +45,17 @@ export default class FrappeChart extends Component {
         this._chart = new Chart(myChartRef, {
             title: 'Inventory Chart',
             data: {
-                labels: this.CHART_DATA.labels,
+                labels: this.INVENTORY_DATA.labels,
                 datasets: [
                     {
                         name: 'Bar',
                         chartType: 'bar',
-                        values: this.CHART_DATA.data
+                        values: this.RANDOM_DATA.data
                     },
                     {
                         name: 'Line',
                         chartType: 'line',
-                        values: this.CHART_DATA.data
+                        values: this.INVENTORY_DATA.data
                     }
                 ]
             },
