@@ -1,6 +1,91 @@
+$color-fuel: #002d5b;
+$color-shift: #0082ff;
+$color-shift-hover: #026bcf;
+$color-accelerate: #009851;
+$color-go: #1dbd71;
+$color-caution: #fdb22b;
+$color-stop: #ed3354;
+$color-pavement: #f6f7f9;
+$color-dashboard: #cbd4de;
+$color-cement: #5c7996;
+$color-white: #ffffff;
+$color-black: #212121;
+
 .ChartistChart-chart-container {
     position: relative;
     height: 100%;
     width: 100%;
     background-color: #ffffff;
+}
+
+.ChartistChart-dual-chart-wrapper {
+    position: relative;
+    height: 350px; // also set in the component js for charts
+
+    .ChartistChart-chart-line {
+        position: absolute;
+        pointer-events: none;
+
+        .ct-line {
+            stroke: $color-cement;
+            opacity: 0.5;
+        }
+
+        .ct-point,
+        .ct-circle {
+            stroke: $color-cement;
+            opacity: 0.5;
+            pointer-events: all;
+        }
+
+        .ct-label {
+            overflow: auto;
+        }
+
+        .ct-legend {
+            left: 175px;
+            top: 350px;
+            display: inline-block;
+
+            li {
+                &::before {
+                    top: 4px;
+                    border-color: $color-cement;
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+
+    .ChartistChart-chart-bar {
+        position: absolute;
+
+        .ct-bar {
+            stroke-width: 30px;
+        }
+
+        .ct-legend {
+            display: inline-block;
+            top: 350px;
+
+            li {
+                padding-left: 50px;
+
+                &::before {
+                    top: 4px;
+                    border-radius: 0;
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
+
+.ActivityChartTooltip {
+    padding: 0 8px;
+}
+
+.ActivityChartTooltip-main {
+    font-weight: 600;
+    padding-bottom: 8px;
 }
