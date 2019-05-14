@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import Chartist from 'chartist';
 import SHChartist from './SHChartist';
-import chartData from '../chartData';
 import './ChartistChart.scss';
 
 export default class ChartistChart extends Component {
     static propTypes = {
-
+        chartData: PropTypes.shape({
+            inventoryData: PropTypes.arrayOf(PropTypes.object),
+            randomData: PropTypes.arrayOf(PropTypes.object),
+        }).isRequired
     };
     static defaultProps = {
 
@@ -20,8 +22,14 @@ export default class ChartistChart extends Component {
     constructor(props) {
         super(props);
 
+        const {
+            chartData: {
+                inventoryData
+            }
+        } = props;
+
         this._highestYValue = 0;
-        this._mappedData = chartData.inventoryData.map(point => {
+        this._mappedData = inventoryData.map(point => {
             if (point.y > this._highestYValue) {
                 this._highestYValue = point.y;
             }

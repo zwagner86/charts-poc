@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import {
     FlexibleXYPlot,
@@ -12,12 +12,14 @@ import {
     Crosshair
 } from 'react-vis';
 import styles from '../styles';
-import chartData from '../chartData';
 import './VisChart.scss';
 
 export default class VisChart extends Component {
     static propTypes = {
-
+        chartData: PropTypes.shape({
+            inventoryData: PropTypes.arrayOf(PropTypes.object),
+            randomData: PropTypes.arrayOf(PropTypes.object),
+        }).isRequired
     };
     static defaultProps = {
 
@@ -30,9 +32,11 @@ export default class VisChart extends Component {
         super(props);
 
         const {
-            inventoryData,
-            randomData
-        } = chartData;
+            chartData: {
+                inventoryData,
+                randomData
+            }
+        } = props;
 
         this._mappedInventoryData = inventoryData.map((point, i, arr) => {
             return {
@@ -45,9 +49,9 @@ export default class VisChart extends Component {
             const date = new Date(point.x);
 
             return {
-                x0: moment(date).subtract(15, 'm')
+                x0: moment(date).subtract(10, 'm')
                     .toDate(),
-                x: moment(date).add(15, 'm')
+                x: moment(date).add(10, 'm')
                     .toDate(),
                 y: point.y
             };

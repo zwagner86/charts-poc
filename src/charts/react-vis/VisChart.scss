@@ -13,6 +13,10 @@ $color-cement: #5c7996;
 $color-white: #ffffff;
 $color-black: #212121;
 
+.VisChart {
+    padding-bottom: 40px;
+}
+
 .VisChart-content {
     background-color: $color-white;
 };
@@ -20,8 +24,8 @@ $color-black: #212121;
 .VisChart-chart-container {
     position: relative;
     width: 100%;
-    height: 500px;
-    max-height: 500px;
+    height: 400px;
+    max-height: 400px;
     background-color: $color-white;
 };
 
