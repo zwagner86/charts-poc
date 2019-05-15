@@ -5,29 +5,27 @@
 }
 
 .ChartistChart-chart-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
     background-color: $color-white;
 }
 
-.ChartistChart-dual-chart-wrapper {
+.ChartistChart-chart-wrapper {
     position: relative;
-    height: 350px; // also set in the component js for charts
+    width: 100%;
+    background-color: $color-white;
+    height: 400px; // also set in the component js for charts
 
     .ChartistChart-chart-line {
         position: absolute;
         pointer-events: none;
 
         .ct-line {
-            stroke: $color-cement;
+            stroke: $color-go;
             opacity: 0.5;
         }
 
         .ct-point,
         .ct-circle {
-            stroke: $color-cement;
-            opacity: 0.5;
+            stroke: $color-go;
             pointer-events: all;
         }
 
@@ -37,13 +35,13 @@
 
         .ct-legend {
             left: 175px;
-            top: 350px;
+            top: 340px;
             display: inline-block;
 
             li {
                 &::before {
-                    top: 4px;
-                    border-color: $color-cement;
+                    top: 2px;
+                    border-color: $color-go;
                     background-color: $color-white;
                 }
             }
@@ -54,20 +52,23 @@
         position: absolute;
 
         .ct-bar {
-            stroke-width: 30px;
+            stroke: $color-caution;
+            stroke-width: 15px;
         }
 
         .ct-legend {
             display: inline-block;
-            top: 350px;
+            top: 340px;
 
             li {
                 padding-left: 50px;
 
                 &::before {
-                    top: 4px;
+                    top: 2px;
                     border-radius: 0;
                     width: 40px;
+                    border-color: $color-caution;
+                    background-color: $color-caution;
                 }
             }
         }
