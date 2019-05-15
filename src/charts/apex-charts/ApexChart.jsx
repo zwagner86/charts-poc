@@ -39,7 +39,7 @@ export default class ApexChart extends Component {
         inventoryData.forEach((inventoryDataPt, i) => {
             if (previousPointValue === inventoryDataPt.y) {
                 this.HIDDEN_MARKERS.push({
-                    seriesIndex: 0,
+                    seriesIndex: 1,
                     dataPointIndex: i,
                     size: 0,
                     fillColor: 'transparent',
@@ -69,7 +69,7 @@ export default class ApexChart extends Component {
         } = styles;
         const myChartRef = this._apexRef.current;
         const options = {
-            colors: [colorGo, colorCaution, colorFuel],
+            colors: [colorCaution, colorGo, colorFuel],
             chart: {
                 height: '100%',
                 type: 'line',
@@ -87,8 +87,8 @@ export default class ApexChart extends Component {
                 curve: 'stepline'
             },
             series: [
-                {name: 'Inventory', data: inventoryData, type: 'line'},
                 {name: 'Stuff', data: randomData, type: 'column'},
+                {name: 'Inventory', data: inventoryData, type: 'line'},
             ],
             xaxis: {
                 type: 'datetime',
@@ -97,7 +97,7 @@ export default class ApexChart extends Component {
                     formatter: value => {
                         return moment(value).format('h:mma');
                     }
-                }
+                },
             },
             markers: {
                 size: 6,

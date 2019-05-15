@@ -1,15 +1,4 @@
-$color-fuel: #002d5b;
-$color-shift: #0082ff;
-$color-shift-hover: #026bcf;
-$color-accelerate: #009851;
-$color-go: #1dbd71;
-$color-caution: #fdb22b;
-$color-stop: #ed3354;
-$color-pavement: #f6f7f9;
-$color-dashboard: #cbd4de;
-$color-cement: #5c7996;
-$color-white: #ffffff;
-$color-black: #212121;
+@import "../colors.scss";
 
 .ChartistChart {
     padding-bottom: 40px;
@@ -19,7 +8,7 @@ $color-black: #212121;
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: $color-white;
 }
 
 .ChartistChart-dual-chart-wrapper {
