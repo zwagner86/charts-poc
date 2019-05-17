@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Simple React + Parcel set up.",
   "main": "index.js",
+  "source": true,
   "scripts": {
     "start": "parcel ./src/index.html --open",
     "build": "parcel build ./src/index.html --experimental-scope-hoisting",
