@@ -21,9 +21,6 @@ export default class VisChart extends Component {
             randomData: PropTypes.arrayOf(PropTypes.object),
         }).isRequired
     };
-    static defaultProps = {
-
-    };
     state = {
         crosshairValues: []
     };

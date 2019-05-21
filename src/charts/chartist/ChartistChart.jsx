@@ -12,12 +12,6 @@ export default class ChartistChart extends Component {
             randomData: PropTypes.arrayOf(PropTypes.object),
         }).isRequired
     };
-    static defaultProps = {
-
-    };
-    state = {
-
-    };
 
     constructor(props) {
         super(props);

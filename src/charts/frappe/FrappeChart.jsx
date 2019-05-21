@@ -15,12 +15,6 @@ export default class FrappeChart extends Component {
             randomData: PropTypes.arrayOf(PropTypes.object),
         }).isRequired
     };
-    static defaultProps = {
-
-    };
-    state = {
-
-    };
     _chartRef = createRef();
     _chart = null;
 
@@ -62,12 +56,12 @@ export default class FrappeChart extends Component {
                 labels: this.INVENTORY_DATA.labels,
                 datasets: [
                     {
-                        name: 'Bar',
+                        name: 'Random',
                         chartType: 'bar',
                         values: this.RANDOM_DATA.data
                     },
                     {
-                        name: 'Line',
+                        name: 'Inventory',
                         chartType: 'line',
                         values: this.INVENTORY_DATA.data
                     }

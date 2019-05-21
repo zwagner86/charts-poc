@@ -15,12 +15,6 @@ export default class ApexChart extends Component {
             randomData: PropTypes.arrayOf(PropTypes.object),
         }).isRequired
     };
-    static defaultProps = {
-
-    };
-    state = {
-
-    };
     _apexRef = createRef();
     _apexChart = null;
 
